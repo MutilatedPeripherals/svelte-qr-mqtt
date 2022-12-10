@@ -4,4 +4,15 @@ A simple React app that creates a QR code to be scanned with a smartphone. This 
 
 This is a building block of my personal website.
 
+![](./figure.png)
+
+## Setup
+
+```bash
+yarn install
+yarn start
+```
+
 See the `.env` files for broker configuration.
+
+Currently, the broker listed there is my own Eclipse Mosquitto instance running on a Digital Ocean droplet.
