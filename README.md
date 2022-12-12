@@ -7,7 +7,11 @@ This is a building block of my personal website.
 ![](./figure.png)
 
 ## Setup
-
+If you don't already have it, install yarn (globally): 
+```bash
+npm install -g yarn
+```
+Then:
 ```bash
 yarn install
 yarn start
@@ -15,4 +19,4 @@ yarn start
 
 See the `.env` files for broker configuration.
 
-Currently, the broker listed there is my own Eclipse Mosquitto instance running on a Digital Ocean droplet.
+Currently, the broker listed there is a [public MQTT broker](https://mqtt.eclipseprojects.io/) provided by Eclipse for testing (supports MQTT over secure web sockets).
