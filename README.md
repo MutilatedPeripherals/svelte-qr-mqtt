@@ -4,6 +4,8 @@ A simple React app that creates a QR code to be scanned with a smartphone. This 
 
 This is a building block of my personal website.
 
+Try it out: [Live demo](https://linomp.github.io/react-qr-mqtt/)
+
 ![](./figure.png)
 
 ## Setup
