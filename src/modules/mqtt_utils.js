@@ -25,6 +25,6 @@ export function getClient(clientId) {
     return client
 }
 
-export function buildGravityTopic(id) {
-    return `${id}/commands/gravity`
+export function buildTestTopic(id) {
+    return `react-qr-mqtt-app/${id}/commands/test`
 }

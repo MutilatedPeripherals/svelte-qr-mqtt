@@ -4,9 +4,10 @@ A simple React app that creates a QR code to be scanned with a smartphone. This 
 
 This is a building block of my personal website.
 
-Try it out: [Live demo](https://linomp.github.io/react-qr-mqtt/)
+**Try it out**: [Live demo](https://linomp.github.io/react-qr-mqtt/)
 
 ![](./figure.png)
+
 
 ## Setup
 If you don't already have it, install yarn (globally): 
@@ -21,4 +22,4 @@ yarn start
 
 See the `.env` files for broker configuration.
 
-Currently, the broker listed there is a [public MQTT broker](https://mqtt.eclipseprojects.io/) provided by Eclipse for testing (supports MQTT over secure web sockets).
+Currently, the broker listed there is a [public Mosquitto MQTT broker](https://test.mosquitto.org/) provided by Eclipse for testing (supports MQTT over secure web sockets).

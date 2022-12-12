@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
-import { getClient, buildGravityTopic } from '../modules/mqtt_utils';
+import { getClient, buildTestTopic } from '../modules/mqtt_utils';
 
 import { TOGGLE_BACKGROUND } from '../constants';
 
@@ -14,27 +14,12 @@ export default function Handheld() {
     const id = searchParams.get('id')
 
     const [client,] = useState(getClient(id))
-    const topic = buildGravityTopic(id)
+    const topic = buildTestTopic(id)
 
     useEffect(() => {
         if (client.connected) {
             return
         }
-
-        client.on('connect', function () {
-            client.subscribe(topic, function (err) {
-                if (err) {
-                    console.log(err)
-                }
-                else if (process.env.REACT_APP_DEBUG) {
-                    console.log(`Subscribed to topic: ${topic}`)
-                }
-            })
-        })
-
-        client.on('message', function (topic, message) {
-            console.log(message.toString())
-        })
     }, [client.connected])
 
 

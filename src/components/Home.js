@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { buildGravityTopic, getClient } from '../modules/mqtt_utils';
+import { buildTestTopic, getClient } from '../modules/mqtt_utils';
 import { buildUrl } from '../modules/browser_utils';
 
 import { Col, Row } from 'react-bootstrap';
@@ -25,7 +25,7 @@ export default function Home({ id }) {
             return
         }
 
-        const topic = buildGravityTopic(id)
+        const topic = buildTestTopic(id)
 
         client.on('connect', function () {
             client.subscribe(topic, function (err) {
