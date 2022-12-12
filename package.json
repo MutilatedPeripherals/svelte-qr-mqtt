@@ -1,6 +1,6 @@
 {
-  "name": "no-pasaran",
-  "homepage": "https://nopasaran.xmp.systems/",
+  "name": "react-qr-mqtt",
+  "homepage": "https://linomp.github.io/react-qr-mqtt",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
