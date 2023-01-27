@@ -2,7 +2,7 @@
 
 A simple React app that creates a QR code to be scanned with a smartphone. This opens another page on the phone, with a couple of buttons that trigger actions on the original page (via MQTT).
 
-This is a building block of my personal website.
+This is a building block of my [personal website](https://pointless.xmp.systems/).
 
 **Try it out**: [Live demo](https://linomp.github.io/react-qr-mqtt/)
 
