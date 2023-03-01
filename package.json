@@ -4,13 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "build": "tsc && vite build",
+    "dev": "vite --host --mode development",
+    "build": "tsc && vite build --mode production",
     "preview": "vite preview --host"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-qr-code": "^2.0.11",
+    "react-router-dom": "^6.8.2",
+    "react-uuid": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
