@@ -1,8 +1,6 @@
 import React from 'react'
 
-import PropTypes from 'prop-types'
-
-export default function Lyrics(props) {
+export default function Lyrics(props: { children: React.ReactElement}){
 
     // Hardcoded lyrics for proof of concept
     const defaultTitle = "Caos"
@@ -46,17 +44,9 @@ export default function Lyrics(props) {
 
     return (
         <div>
-            <h1 className='mt-5 mb-3'>{props.title || defaultTitle}</h1>
+            <h1 className='mt-5 mb-3'>{defaultTitle}</h1>
             {props.children}
-            {props.lyrics || defaultLyrics}
+            {defaultLyrics}
         </div>
     )
-}
-
-
-// Add proptypes with fields children, title and lyrics
-Lyrics.propTypes = {
-    children: PropTypes.node,
-    title: PropTypes.string,
-    lyrics: PropTypes.string
 }
