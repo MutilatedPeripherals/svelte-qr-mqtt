@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {buildTopic} from '../services/utils';
 
@@ -10,7 +10,7 @@ export default function Handheld(props: { app_mqtt_client: any }) {
     const searchParams = new URLSearchParams(location.search)
     const id = searchParams.get('id') ?? "test123"
 
-    let topic = buildTopic(id)
+    let [topic] = useState(buildTopic(id))
 
     // TODO: create a class for the message format
     const mqttPublish = (msg: string) => async () => {

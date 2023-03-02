@@ -7,9 +7,8 @@ import {buildHandheldUrl, buildTopic} from "../services/utils";
 
 function Home(props: { id: string, app_mqtt_client: any }) {
     const [alternativeBackground, setAlternativeBackground] = useState(false)
-
     const [handheldUrl,] = useState(buildHandheldUrl(props.id))
-    let topic = buildTopic(props.id)
+    let [topic,] = useState(buildTopic(props.id))
 
     // TODO: create a class for the message format
     // TODO: is it correct to subscribe here? or should it be in a useEffect?
