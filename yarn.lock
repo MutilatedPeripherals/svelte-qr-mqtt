@@ -4043,6 +4043,11 @@ typescript@^4.9.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
+u8-mqtt@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/u8-mqtt/-/u8-mqtt-0.3.1.tgz#723d911d6a47cab2ffe4bb59ddcb96eac98a5fba"
+  integrity sha512-AvIN/5n/EOyzlVM3SoZ4ODvTn8fqhqI5MjZmM/bPqHY52zfOPwVjbxX/EgCn4yan35FACMZmiNDI+hRcHC9pRg==
+
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.0.tgz#301acdc525631670d39f6146e0e77ff6bbdebddc"
