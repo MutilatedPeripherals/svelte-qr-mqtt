@@ -12,7 +12,7 @@ export default function Handheld(props: { app_mqtt_client: any }) {
 
     let topic = buildTopic(id)
 
-
+    // TODO: create a class for the message format
     const mqttPublish = (msg: string) => async () => {
         if (props.app_mqtt_client) {
             await props.app_mqtt_client.json_send(

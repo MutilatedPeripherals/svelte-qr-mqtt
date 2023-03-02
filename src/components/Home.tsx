@@ -11,6 +11,8 @@ function Home(props: { id: string, app_mqtt_client: any }) {
     const [handheldUrl,] = useState(buildHandheldUrl(props.id))
     let topic = buildTopic(props.id)
 
+    // TODO: create a class for the message format
+    // TODO: is it correct to subscribe here? or should it be in a useEffect?
     props.app_mqtt_client.subscribe_topic(
         topic,
         (pkt: { json: () => any; }) => {
