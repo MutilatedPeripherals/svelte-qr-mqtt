@@ -7,7 +7,8 @@ This is a building block of my [personal website](https://pointless.xmp.systems/
 
 **Try it out**: [Live demo](https://linomp.github.io/react-qr-mqtt/)
 
-![](./figure.png)
+![react-qr-mqtt-figure](https://user-images.githubusercontent.com/40581019/230787244-8dfb7e78-9d0b-4573-8cd4-3594cccbbe26.png)
+
 
 ## Setup
 
