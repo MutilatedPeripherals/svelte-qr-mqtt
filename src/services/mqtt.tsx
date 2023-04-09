@@ -1,5 +1,5 @@
 // @ts-ignore
-import mqtt_client from 'u8-mqtt'
+import mqtt_client from 'u8-mqtt/esm/web/index.js'
 
 // TODO: improve this; maybe wrap it in a class, as singleton and provide good type annotations for the rest of the app
 
