@@ -5,6 +5,7 @@ import {NodeGlobalsPolyfillPlugin} from "@esbuild-plugins/node-globals-polyfill"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: "/react-qr-mqtt/",
     plugins: [react(),
         nodePolyfills({
             protocolImports: true,
