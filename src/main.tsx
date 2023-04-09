@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Home from './components/Home'
 import './index.css'
 import uuid from "react-uuid";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createHashRouter, RouterProvider} from "react-router-dom";
 import Handheld from "./components/Handheld";
 import get_mqtt_client from "./services/mqtt";
 
@@ -14,7 +14,7 @@ let id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 
 
 // Source: https://reactrouter.com/en/main/start/tutorial
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <Home id={id} app_mqtt_client={app_mqtt_client}/>,
