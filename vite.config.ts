@@ -15,7 +15,7 @@ export default defineConfig({
             process: true,
             buffer: true
         }),
-    svelte()],
+    svelte({hot: !process.env.VITEST})],
     build: {
         target: 'esnext'
     }

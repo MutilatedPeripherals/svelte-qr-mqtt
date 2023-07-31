@@ -1,7 +1,7 @@
-import React, {useState, useRef, useLayoutEffect} from 'react'
-import QRCode from 'react-qr-code';
-import Hello from "../Hello.svelte";
-
+// @ts-ignore
+import React, {MutableRefObject, useLayoutEffect, useRef, useState} from 'react'
+// @ts-ignore
+import QrContainer from "./QrContainer.svelte";
 
 import Lyrics from './Lyrics';
 import {buildHandheldUrl, buildTopic} from "../services/utils";
@@ -11,12 +11,21 @@ function Home(props: { id: string, app_mqtt_client: any }) {
     const [handheldUrl,] = useState(buildHandheldUrl(props.id))
     let [topic,] = useState(buildTopic(props.id))
 
-    const svelteRef = useRef()
+    let svelteQrCodeRef: MutableRefObject<any> = useRef()
     useLayoutEffect(() => {
-        new Hello({
-            target: svelteRef.current
+        // Iterate and remove all previously appended children in the ref
+        while (svelteQrCodeRef.current?.firstChild) {
+            svelteQrCodeRef.current?.firstChild?.remove();
+        }
+        new QrContainer({
+            target: svelteQrCodeRef.current,
+            props: {
+                alternativeBackground: alternativeBackground,
+                setAlternativeBackground: setAlternativeBackground,
+                url: handheldUrl
+            }
         })
-    }, [])
+    }, [alternativeBackground])
 
     // TODO: create a class for the message format
     // TODO: is it correct to subscribe here? or should it be in a useEffect?
@@ -31,38 +40,29 @@ function Home(props: { id: string, app_mqtt_client: any }) {
 
     return (
         <div className={`home ${alternativeBackground ? "alternative-bg" : ""}`}>
-        {alternativeBackground && <div className="alternative-bg-background"/>}
-        <div ref={svelteRef}/>
-        <Lyrics
-            children={
-                (<div style={{height: "auto", margin: "0 auto", maxWidth: 80, width: "100%"}}>
-                    <QRCode
-                        onClick={() => setAlternativeBackground(!alternativeBackground)}
-                        size={256}
-                        style={{height: "auto", maxWidth: "100%", width: "100%"}}
-                        bgColor={alternativeBackground ? "#000000" : "#FFFFFF"}
-                        fgColor={alternativeBackground ? "#FFFFFF" : "#000000"}
-                        value={handheldUrl}
-                        viewBox={`0 0 ${256} ${256}`}
-                    />
-                </div>)}/>
-        <div className="home__footer">
-            <div className="can-can-bc">
-                <a className={`${alternativeBackground ? "alternative-bg" : ""}`}
-                   href="https://www.youtube.com/@pichudequito/videos"
-                   target="_blank">Band:
-                    Can Can
-                    (Ecuador)</a>
+            {alternativeBackground && <div className="alternative-bg-background"/>}
+            <Lyrics
+                children={
+                    (<div style={{width: "100%", display: "flex", flexDirection: "row", justifyContent: "center"}}>
+                        <div className={"svelteQrCode"} ref={svelteQrCodeRef}/>
+                    </div>)}/>
+            <div className="home__footer">
+                <div className="can-can-bc">
+                    <a className={`${alternativeBackground ? "alternative-bg" : ""}`}
+                       href="https://www.youtube.com/@pichudequito/videos"
+                       target="_blank">Band:
+                        Can Can
+                        (Ecuador)</a>
+                </div>
+                <div className="github-link">
+                    <a className={`${alternativeBackground ? "alternative-bg" : ""}`}
+                       href="https://github.com/linomp/react-qr-mqtt"
+                       target="_blank"><i
+                        className="fab fa-github"></i></a>
+                </div>
             </div>
-            <div className="github-link">
-                <a className={`${alternativeBackground ? "alternative-bg" : ""}`}
-                   href="https://github.com/linomp/react-qr-mqtt"
-                   target="_blank"><i
-                    className="fab fa-github"></i></a>
-            </div>
-        </div>
 
-    </div>);
+        </div>);
 }
 
 export default Home
