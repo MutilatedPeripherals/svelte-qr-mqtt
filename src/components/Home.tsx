@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useLayoutEffect} from 'react'
 import QRCode from 'react-qr-code';
+import Hello from "../Hello.svelte";
 
 
 import Lyrics from './Lyrics';
@@ -9,6 +10,13 @@ function Home(props: { id: string, app_mqtt_client: any }) {
     const [alternativeBackground, setAlternativeBackground] = useState(false)
     const [handheldUrl,] = useState(buildHandheldUrl(props.id))
     let [topic,] = useState(buildTopic(props.id))
+
+    const svelteRef = useRef()
+    useLayoutEffect(() => {
+        new Hello({
+            target: svelteRef.current
+        })
+    }, [])
 
     // TODO: create a class for the message format
     // TODO: is it correct to subscribe here? or should it be in a useEffect?
@@ -21,8 +29,10 @@ function Home(props: { id: string, app_mqtt_client: any }) {
             }
         })
 
-    return (<div className={`home ${alternativeBackground ? "alternative-bg" : ""}`}>
+    return (
+        <div className={`home ${alternativeBackground ? "alternative-bg" : ""}`}>
         {alternativeBackground && <div className="alternative-bg-background"/>}
+        <div ref={svelteRef}/>
         <Lyrics
             children={
                 (<div style={{height: "auto", margin: "0 auto", maxWidth: 80, width: "100%"}}>
