@@ -1,15 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './components/Home'
+import HomeContainer from './components/HomeContainer'
 import './index.css'
 import uuid from "react-uuid";
 import {createHashRouter, RouterProvider} from "react-router-dom";
-import Handheld from "./components/Handheld";
-import get_mqtt_client from "./services/mqtt";
+import HandheldContainer from "./components/HandheldContainer";
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-let app_mqtt_client = await get_mqtt_client()
 let id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 
 
@@ -17,15 +15,15 @@ let id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 const router = createHashRouter([
     {
         path: "/",
-        element: <Home id={id} app_mqtt_client={app_mqtt_client}/>,
+        element: <HomeContainer id={id}/>,
     },
     {
         path: "/handheld",
-        element: <Handheld app_mqtt_client={app_mqtt_client}/>,
+        element: <HandheldContainer/>,
     },
     {
         path: "*",
-        element: <Home id={id} app_mqtt_client={app_mqtt_client}/>,
+        element: <HomeContainer id={id}/>,
     }
 ]);
 

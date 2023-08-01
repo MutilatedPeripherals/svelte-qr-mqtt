@@ -1,19 +1,14 @@
 import {render} from '@testing-library/react';
 import {fireEvent} from '@testing-library/svelte'
-import Home from '../components/Home';
+import HomeContainer from '../components/HomeContainer';
 
 // Source: https://codingwithmanny.medium.com/quick-jest-setup-with-vitejs-react-typescript-82f325e4323f
 
 test('Renders main page correctly', async () => {
-    // TODO: improve this with a proper mock
-    let app_mqtt_client = {
-        subscribe_topic: () => {
-        }
-    }
-    const {container} = render(<Home id="123" app_mqtt_client={app_mqtt_client}/>);
+    const {container} = render(<HomeContainer id="123"/>);
 
     // find the svg element and click it
-    const div = container.querySelector("div.svelteQrCode>div.qrCodeInner") as HTMLDivElement;
+    const div = container.querySelector(".qrCodeInner") as HTMLDivElement;
     expect(div).not.toBeNull();
     await fireEvent.click(div);
 
