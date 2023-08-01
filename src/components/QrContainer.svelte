@@ -2,7 +2,6 @@
     let qrContainer: HTMLElement
 
     export let alternativeBackground: boolean;
-    export let setAlternativeBackground: (_: boolean) => void;
     export let url: string
 
     function initQr() {
@@ -23,4 +22,6 @@
     <script type="text/javascript" src="./qrcode.min.js" on:load={() => initQr()}/>
 </svelte:head>
 
-<div class="qrCodeInner" bind:this={qrContainer} on:click={() => setAlternativeBackground(!alternativeBackground)}/>
+<div class="qrCodeInner"
+     bind:this={qrContainer}
+     on:click={() => alternativeBackground = !alternativeBackground}></div>
