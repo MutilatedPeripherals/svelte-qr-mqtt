@@ -1,23 +1,30 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["src", "i18n"],
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
+    /* noEmit - vite/esbuild builds (emits) files, not tsc */
     "noEmit": true,
-    "jsx": "react-jsx",
+    "types": ["vite/client", "mocha", "vitest/globals"],
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "error",
+    "esModuleInterop": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
     "noImplicitAny": true,
-    "strictNullChecks": true
-  },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+    "suppressImplicitAnyIndexErrors": true,
+    "strictPropertyInitialization": true,
+    "jsx": "react-jsx"
+  }
 }
