@@ -14,13 +14,13 @@
             height: 128,
             colorDark: alternativeBackground ? "#FFFFFF" : "#000000",
             colorLight: alternativeBackground ? "#000000" : "#FFFFFF",
-            correctLevel : QRCode.CorrectLevel.H
+            correctLevel: QRCode.CorrectLevel.H
         })
     }
 </script>
 
 <svelte:head>
-    <script type="text/javascript" src="../src/assets/qrcode.min.js" on:load={() => initQr()} />
+    <script type="text/javascript" src="./qrcode.min.js" on:load={() => initQr()}/>
 </svelte:head>
 
 <div class="qrCodeInner" bind:this={qrContainer} on:click={() => setAlternativeBackground(!alternativeBackground)}/>
