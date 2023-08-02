@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-    <script type="text/javascript" src="./react-qr-mqtt/qrcode.min.js" on:load={() => initQr()}/>
+    <script type="text/javascript" src="./qrcode.min.js" on:load={() => initQr()}/>
 </svelte:head>
 
 <div class="qrCodeInner"
