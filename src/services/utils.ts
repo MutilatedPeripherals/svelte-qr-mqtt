@@ -3,7 +3,8 @@ export function buildTopic(id: string): string {
 }
 
 export function buildHandheldUrl(id: string): string {
-    let url = window.location.href + "/handheld?id=" + id
+    const wl = window.location
+    let url = `${wl.origin}${wl.pathname}#/handheld?id=${id}`
     console.log("Handheld URL: " + url)
 
     return url;
