@@ -1,8 +1,8 @@
 {
-  "name": "react-qr-mqtt",
+  "name": "svelte-qr-mqtt",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://linomp.github.io/react-qr-mqtt/",
+  "homepage": "https://linomp.github.io/svelte-qr-mqtt/",
   "type": "module",
   "scripts": {
     "dev": "vite --host --mode development",

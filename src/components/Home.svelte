@@ -38,7 +38,7 @@
         </div>
         <div class="github-link">
             <a class={`${alternativeBackground ? "alternative-bg" : ""}`}
-               href="https://github.com/linomp/react-qr-mqtt"
+               href="https://github.com/linomp/svelte-qr-mqtt"
                target="_blank"><i
                     class="fab fa-github"></i></a>
         </div>

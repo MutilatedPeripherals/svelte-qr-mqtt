@@ -1,14 +1,13 @@
-# react-qr-mqtt
+# svelte-qr-mqtt
 
 A simple Svelte app that creates a QR code to be scanned with a smartphone. This opens another page on the phone, with a
 couple of buttons that trigger actions on the original page (via MQTT).
 
 This is a building block of my [personal website](https://pointless.xmp.systems/).
 
-**Try it out**: [Live demo](https://linomp.github.io/react-qr-mqtt/)
+**Try it out**: [Live demo](https://linomp.github.io/svelte-qr-mqtt/)
 
-![react-qr-mqtt-figure](https://user-images.githubusercontent.com/40581019/230787244-8dfb7e78-9d0b-4573-8cd4-3594cccbbe26.png)
-
+![svelte-qr-mqtt-figure](https://user-images.githubusercontent.com/40581019/230787244-8dfb7e78-9d0b-4573-8cd4-3594cccbbe26.png)
 
 ## Setup
 

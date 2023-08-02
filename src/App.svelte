@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-    <title>react-qr-mqtt</title>
+    <title>svelte-qr-mqtt</title>
 </svelte:head>
 
 <Router {routes}/>

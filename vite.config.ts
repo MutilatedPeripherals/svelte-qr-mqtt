@@ -6,7 +6,7 @@ import {svelte} from "@sveltejs/vite-plugin-svelte";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: "/react-qr-mqtt",
+    base: "/svelte-qr-mqtt",
     plugins: [react(),
         nodePolyfills({
             protocolImports: true,
@@ -15,7 +15,7 @@ export default defineConfig({
             process: true,
             buffer: true
         }),
-    svelte({hot: !process.env.VITEST})],
+        svelte({hot: !process.env.VITEST})],
     build: {
         target: 'esnext'
     }
