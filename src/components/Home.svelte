@@ -2,8 +2,9 @@
     import get_mqtt_client from "../services/mqtt.js";
     import {buildHandheldUrl, buildTopic} from "../services/utils";
     import Lyrics from "./Lyrics.svelte";
+    import uuid from "react-uuid";
 
-    export let id: string;
+    const id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 
     let alternativeBackground = false
 
@@ -20,12 +21,12 @@
 </script>
 
 <div class={`home ${alternativeBackground ? "alternative-bg" : ""}`}>
-        {#if alternativeBackground}
-            <div class="alternative-bg-background"/>
-        {/if}
+    {#if alternativeBackground}
+        <div class="alternative-bg-background"/>
+    {/if}
     <Lyrics
-        bind:alternativeBackground
-        url={buildHandheldUrl(id)}
+            bind:alternativeBackground
+            url={buildHandheldUrl(id)}
     />
     <div class="home__footer">
         <div class="can-can-bc">
