@@ -2,7 +2,8 @@
     import get_mqtt_client from "../services/mqtt";
     import {buildTopic} from "../services/utils";
 
-    export let id: any
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') ?? "test123";
 
     function sendMessage() {
         get_mqtt_client().then(client => {
