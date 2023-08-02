@@ -1,8 +1,9 @@
 <script lang="ts">
     import get_mqtt_client from "../services/mqtt";
     import {buildTopic} from "../services/utils";
+    import {querystring} from "svelte-spa-router";
 
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams($querystring);
     const id = params.get('id') ?? "test123";
 
     function sendMessage() {
