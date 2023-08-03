@@ -25,6 +25,5 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "strictPropertyInitialization": true,
-    "jsx": "react-jsx"
   }
 }

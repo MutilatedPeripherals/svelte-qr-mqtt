@@ -1,5 +1,4 @@
 import {defineConfig} from 'vite'
-import react from '@vitejs/plugin-react'
 import {nodePolyfills} from "vite-plugin-node-polyfills";
 import {NodeGlobalsPolyfillPlugin} from "@esbuild-plugins/node-globals-polyfill";
 import {svelte} from "@sveltejs/vite-plugin-svelte";
@@ -7,7 +6,7 @@ import {svelte} from "@sveltejs/vite-plugin-svelte";
 // https://vitejs.dev/config/
 export default defineConfig({
     base: "/svelte-qr-mqtt",
-    plugins: [react(),
+    plugins: [
         nodePolyfills({
             protocolImports: true,
         }),
@@ -15,7 +14,8 @@ export default defineConfig({
             process: true,
             buffer: true
         }),
-        svelte({hot: !process.env.VITEST})],
+        svelte({hot: !process.env.VITEST})
+    ],
     build: {
         target: 'esnext'
     }
