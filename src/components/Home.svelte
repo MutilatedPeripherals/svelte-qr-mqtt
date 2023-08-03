@@ -1,5 +1,5 @@
 <script lang="ts">
-    import get_mqtt_client from "../services/mqtt.js";
+    import get_mqtt_client from "../services/mqtt";
     import {buildHandheldUrl, buildTopic} from "../services/utils";
     import Lyrics from "./Lyrics.svelte";
     import uuid from "react-uuid";
