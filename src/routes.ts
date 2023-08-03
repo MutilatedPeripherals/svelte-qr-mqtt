@@ -1,9 +1,12 @@
-import Home from "./components/Home.svelte";
-import Handheld from "./components/Handheld.svelte";
+import wrap from "svelte-spa-router/wrap";
 
 const routes = {
-    '/': Home,
-    '/handheld': Handheld,
+    '/': wrap({
+        asyncComponent: () => import('./components/Home.svelte')
+    }),
+    '/handheld': wrap({
+        asyncComponent: () => import('./components/Handheld.svelte')
+    }),
 }
 
 export {routes}
