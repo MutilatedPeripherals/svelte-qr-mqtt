@@ -32,5 +32,6 @@
     }
 </script>
 
-<canvas bind:this={canvas}
+<canvas class="qrCodeInner"
+        bind:this={canvas}
         on:click={() => alternativeBackground = !alternativeBackground}/>
