@@ -10,7 +10,6 @@
     let mounted = false
 
     $: if (mounted) {
-        mounted = true
         QRCode.toCanvas(canvas, url, opts(alternativeBackground))
     }
 
