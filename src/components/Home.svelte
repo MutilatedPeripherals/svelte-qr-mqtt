@@ -3,6 +3,7 @@
     import get_mqtt_client from "src/services/mqtt";
     import {buildHandheldUrl, buildTopic} from "src/services/utils";
     import Lyrics from "src/components/Lyrics.svelte";
+    import GithubSvg from "src/components/GithubSvg.svelte";
 
     const id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 
@@ -39,8 +40,9 @@
         <div class="github-link">
             <a class={`${alternativeBackground ? "alternative-bg" : ""}`}
                href="https://github.com/linomp/svelte-qr-mqtt"
-               target="_blank"><i
-                    class="fab fa-github"></i></a>
+               target="_blank">
+                <GithubSvg/>
+            </a>
         </div>
     </div>
 
