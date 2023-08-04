@@ -11,7 +11,7 @@
     },
     /* noEmit - vite/esbuild builds (emits) files, not tsc */
     "noEmit": true,
-    "types": ["vite/client", "mocha", "vitest/globals"],
+    "types": ["vite/client", "mocha", "vitest/globals", "qrcode"],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "useDefineForClassFields": true,

@@ -1,27 +1,36 @@
 <script lang="ts">
-    let qrContainer: HTMLElement
+    import * as QRCode from 'qrcode'
+    import {onMount} from "svelte";
+    import type {QRCodeRenderersOptions} from "qrcode";
 
     export let alternativeBackground: boolean;
     export let url: string
 
-    function initQr() {
-        // @ts-ignore
-        let QRCode = window["QRCode"]
-        new QRCode(qrContainer, {
-            text: url,
+    let canvas: HTMLElement
+    let mounted = false
+
+    $: if (mounted) {
+        mounted = true
+        QRCode.toCanvas(canvas, url, opts(alternativeBackground))
+    }
+
+    onMount(() => {
+        QRCode.toCanvas(canvas, url, opts(alternativeBackground))
+        mounted = true
+    })
+
+    function opts(alternativeBackground: boolean): QRCodeRenderersOptions {
+        return {
+            errorCorrectionLevel: 'H',
+            margin: 1,
             width: 128,
-            height: 128,
-            colorDark: alternativeBackground ? "#FFFFFF" : "#000000",
-            colorLight: alternativeBackground ? "#000000" : "#FFFFFF",
-            correctLevel: QRCode.CorrectLevel.H
-        })
+            color: {
+                dark: alternativeBackground ? "#FFFFFF" : "#000000",
+                light: alternativeBackground ? "#000000" : "#FFFFFF"
+            }
+        }
     }
 </script>
 
-<svelte:head>
-    <script type="text/javascript" src="./qrcode.min.js" on:load={() => initQr()}/>
-</svelte:head>
-
-<div class="qrCodeInner"
-     bind:this={qrContainer}
-     on:click={() => alternativeBackground = !alternativeBackground}></div>
+<canvas bind:this={canvas}
+        on:click={() => alternativeBackground = !alternativeBackground}/>
