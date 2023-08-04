@@ -1,5 +1,5 @@
 import {render, fireEvent} from '@testing-library/svelte'
-import Home from "../components/Home.svelte";
+import Home from "src/components/Home.svelte";
 
 test('Renders main page correctly', async () => {
     const {container} = render(Home);

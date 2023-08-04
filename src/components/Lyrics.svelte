@@ -1,5 +1,5 @@
 <script lang="ts">
-import QrContainer from "./QrContainer.svelte";
+import QrContainer from "src/components/QrContainer.svelte";
 
 export let alternativeBackground: boolean;
 export let url: string

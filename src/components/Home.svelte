@@ -1,8 +1,8 @@
 <script lang="ts">
-    import get_mqtt_client from "../services/mqtt";
-    import {buildHandheldUrl, buildTopic} from "../services/utils";
-    import Lyrics from "./Lyrics.svelte";
     import uuid from "react-uuid";
+    import get_mqtt_client from "src/services/mqtt";
+    import {buildHandheldUrl, buildTopic} from "src/services/utils";
+    import Lyrics from "src/components/Lyrics.svelte";
 
     const id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 
