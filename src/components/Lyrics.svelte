@@ -1,19 +1,49 @@
 <script lang="ts">
-import QrContainer from "src/components/QrContainer.svelte";
+    import QrContainer from "src/components/QrContainer.svelte";
+    import {onMount} from "svelte";
 
-export let alternativeBackground: boolean;
-export let url: string
+    export let alternativeBackground: boolean;
+    export let gravityEnabled: boolean
+    export let url: string
 
+    // Source: https://stackoverflow.com/a/74678958/8522453
+    let timeoutIds: number[] = [];
+    let refs: HTMLDivElement[] = [];
+
+    // TODO: this feels weird; do we need to manually create a ref for every element that we want to affect with gravity?
+    let lyricsRef: HTMLDivElement | null;
+    let qrRef: HTMLDivElement | null;
+    onMount(() => {
+        refs = [lyricsRef!!, qrRef!!];
+    });
+
+    $:{
+        if (gravityEnabled) {
+            for (let ref of refs) {
+                let id: number = setTimeout(function () {
+                    ref.style.marginTop = '1000px';
+                }, 100) as unknown as number;
+                timeoutIds.push(id);
+            }
+        } else {
+            for (let id of timeoutIds) {
+                clearTimeout(id);
+            }
+            for (let ref of refs) {
+                ref.style.marginTop = '0px';
+            }
+        }
+    }
 </script>
 
 
 <div>
     <h1>Caos</h1>
-    <div class="qrContainer">
+    <div class={`qrContainer ${gravityEnabled ? "gravity-affected-object" : ""}`} bind:this={qrRef}>
         <QrContainer bind:alternativeBackground {url}/>
     </div>
 
-    <div>
+    <div class={gravityEnabled ? "gravity-affected-object" : ""} bind:this={lyricsRef}>
         <p>De pronto todo cambia y ellos llaman a decirme <br/>
             Señor debe hacer, lo que solía hacer<br/>
             Y no se parece en nada a lo que usted viene<br/>
@@ -53,7 +83,7 @@ export let url: string
 </div>
 
 <style>
-    .qrContainer{
+    .qrContainer {
         width: 100%;
         display: flex;
         flex-direction: row;
