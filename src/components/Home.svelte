@@ -4,20 +4,34 @@
     import {buildHandheldUrl, buildTopic} from "src/services/utils";
     import Lyrics from "src/components/Lyrics.svelte";
     import GithubSvg from "src/components/GithubSvg.svelte";
+    import {TOGGLE_BACKGROUND_MESSAGE, TOGGLE_GRAVITY_MESSAGE} from "src/services/constants";
+    import {MqttPayload} from "src/models/MqttPayload";
 
     const id: string = (import.meta.env.VITE_DEBUG) ? "test123" : uuid();
 
     let alternativeBackground = false
+    let gravityEnabled = false
 
     get_mqtt_client().then(client => {
         client.subscribe_topic(
             buildTopic(id),
             (pkt: { json: () => any; }) => {
-                let parsed = pkt.json()
-                if (parsed.note === "toggle-background") {
-                    alternativeBackground = !alternativeBackground
+                let parsed: MqttPayload = MqttPayload.fromJson(pkt.json());
+
+                if (import.meta.env.VITE_DEBUG) {
+                    console.log(parsed)
                 }
-            })
+
+                switch (parsed.message) {
+                    case TOGGLE_BACKGROUND_MESSAGE:
+                        alternativeBackground = !alternativeBackground
+                        break;
+                    case TOGGLE_GRAVITY_MESSAGE:
+                        gravityEnabled = !gravityEnabled
+                        break;
+                }
+            }
+        )
     })
 </script>
 
@@ -27,6 +41,7 @@
     {/if}
     <Lyrics
             bind:alternativeBackground
+            bind:gravityEnabled
             url={buildHandheldUrl(id)}
     />
     <div class="home__footer">
