@@ -15,11 +15,10 @@
     const sceneContainer = document.getElementById("canvas-container");
     const canvasWidth = sceneContainer.offsetWidth;
     const canvasHeight = sceneContainer.offsetHeight;
-    console.log("scence container", sceneContainer);
     var app = new PIXI.Application();
     var renderer = await PIXI.autoDetectRenderer(
       window.innerWidth,
-      window.innerHeight
+      window.innerHeight,
     );
 
     await app.init({
@@ -61,7 +60,7 @@
         render: {
           fillStyle: "blue", // This will color the body red. You can use any CSS color value here.
         },
-      }
+      },
     );
 
     Matter.Body.rotate(textBody, Math.PI / 4); // PI/4 radians is 45 degrees
@@ -75,11 +74,10 @@
         render: {
           fillStyle: "blue", // This will color the body red. You can use any CSS color value here.
         },
-      }
+      },
     );
     Matter.Body.rotate(textBody2, Math.PI / 3); // PI/4 radians is 45 degrees
 
-    console.log("asdf", canvasHeight, canvasWidth);
     Matter.World.addBody(world, textBody);
     Matter.World.addBody(world, textBody2);
     const wallBottom = Matter.Bodies.rectangle(
@@ -94,17 +92,15 @@
           strokeStyle: "red",
           lineWidth: 1,
         },
-      }
+      },
     );
     Matter.World.addBody(world, wallBottom);
-    console.log("el wall bottom", wallBottom);
 
     let y = 0;
     let velocity = 0;
     let gravity = 0.0001; // Adjust gravity to your liking
 
     app.ticker.add((delta) => {
-      console.log(textBody.position.y);
       helloText.y = textBody.position.y;
       helloText.x = textBody.position.x;
       helloText.rotation = textBody.angle;
