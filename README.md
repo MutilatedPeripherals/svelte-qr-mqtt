@@ -8,18 +8,9 @@ couple of buttons that trigger actions on the original page (via MQTT).
 ![svelte-qr-mqtt-figure](https://user-images.githubusercontent.com/40581019/230787244-8dfb7e78-9d0b-4573-8cd4-3594cccbbe26.png)
 
 ## Setup
-
-If you don't already have it, install yarn (globally):
-
 ```bash
-npm install -g yarn
-```
-
-Then:
-
-```bash
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
 
 See the `.env` files for broker configuration.
