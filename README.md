@@ -17,3 +17,10 @@ See the `.env` files for broker configuration.
 
 Currently, the broker listed there is a [public Mosquitto MQTT broker](https://test.mosquitto.org/) provided by Eclipse
 for testing (supports MQTT over secure web sockets).
+
+## New: web graphics & physics experiment
+A first attempt at re-creating the google gravity effect, done with WebGPU, Pixi.js & Matter.js.
+
+[See source](https://github.com/linomp/svelte-qr-mqtt/blob/main/src/components/CanvasTest.svelte) | [Try demo](https://linomp.github.io/svelte-qr-mqtt/#/canvas-test)
+
+**Credits**: [@lmeullibre](https://github.com/lmeullibre)
