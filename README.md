@@ -1,6 +1,6 @@
-[![Build, Test and Deploy](https://github.com/MutilatedPeripherals/svelte-qr-mqtt/actions/workflows/CI.yml/badge.svg)](https://github.com/MutilatedPeripherals/svelte-qr-mqtt/actions/workflows/CI.yml)
-
 # svelte-qr-mqtt
+
+[![Build, Test and Deploy](https://github.com/MutilatedPeripherals/svelte-qr-mqtt/actions/workflows/CI.yml/badge.svg)](https://github.com/MutilatedPeripherals/svelte-qr-mqtt/actions/workflows/CI.yml)
 
 A simple Svelte app that creates a QR code to be scanned with a smartphone. This opens another page on the phone, with a
 couple of buttons that trigger actions on the original page (via MQTT).
